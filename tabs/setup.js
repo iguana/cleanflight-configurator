@@ -288,6 +288,10 @@ TABS.setup.initialize3D = function (compatibility) {
         model.rotation.x = (SENSOR_DATA.kinematics[1] * -1.0) * 0.017453292519943295;
         modelWrapper.rotation.y = ((SENSOR_DATA.kinematics[2] * -1.0) - self.yaw_fix) * 0.017453292519943295;
         model.rotation.z = (SENSOR_DATA.kinematics[0] * -1.0) * 0.017453292519943295;
+	$.get('http://localhost:3000/update3d/' + model.rotation.x + '/' + modelWrapper.rotation.y + '/' + model.rotation.z,
+		function (res){
+			//	
+		});
 
         // draw
         renderer.render(scene, camera);
